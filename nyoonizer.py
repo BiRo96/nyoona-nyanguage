@@ -1,8 +1,11 @@
 def first(s):
-    return s[:1]
+    return s[:1].lower()
 
 def first2(s):
-    return s[:2]
+    return s[:2].lower()
+
+def first3(s):
+    return s[:3].lower()
 
 def nyoonize_word(word :str):
     consonants = [
@@ -13,14 +16,14 @@ def nyoonize_word(word :str):
         'th', 'ch', 'sh'
     ]
     
-    for first_letters in consonants:
-        if first_letters == first2(word):
-            word = "ny" + word[2:]
-            break
+    if first3(word) in consonants:
+        word = "ny" + word[3:]
+                
+    elif first2(word) in consonants:
+        word = "ny" + word[2:]
         
-        elif first_letters == first(word):
-            word = "ny" + word[1:]
-            break
+    elif first(word) in consonants:
+        word = "ny" + word[1:]
             
     return word
 
